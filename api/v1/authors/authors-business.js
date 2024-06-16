@@ -1,22 +1,20 @@
-const repository = require('./product-repository')
+const repository = require('./author-repository')
 
-const create = async (product) => {
-
-    //logica negocio
-    return repository.save(product);
-}
+const create = async (autor) => {
+    return repository.save(autor);
+};
 
 const list = async (filter) => {
     return repository.findAll(filter);
-}
+};
 
 const findById = async (id) => {
     return repository.findById(id);
-}
+};
 
 const deleteById = async (id) => {
-    repository.deleteById(id);
-}
+    return repository.deleteById(id);
+};
 
 module.exports = {
     create,

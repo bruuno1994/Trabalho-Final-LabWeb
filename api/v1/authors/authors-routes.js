@@ -1,45 +1,44 @@
-const { getProducts, create, findById, deleteById} = require('./product-controller');
-const schema = require('./product-schema');
+const { getAuthors, create, findById, deleteById} = require('./author-controller');
+const schema = require('./author-schema');
 
 const plugin = {
-    name: 'product-v1-route',
+    name: 'author-routes',
     version: '1',
     register: (server) => {
         server.route([
             {
                 method: "GET",
-                path: "/v1/products",
+                path: "/authors",
                 options: {
-                    tags: ['api'],
-                    description: 'List of products',
-                    handler: getProducts,
-                    validate: schema.getProducts
+                    tags: ['Authors'],
+                    description: 'List of authors',
+                    handler: getAuthors,
                 }
             },
             {
                 method: "GET",
-                path: "/v1/products/{id}",
+                path: "/authors/{id}",
                 options: {
-                    tags: ['api'],
-                    description: 'Create a product',
+                    tags: ['Authors'],
+                    description: 'Authors by Id',
                     handler: findById,
                     validate: schema.getById
                 }
             },
             {
                 method: "POST",
-                path: "/v1/products",
+                path: "/authors",
                 options: {
-                    tags: ['api'],
+                    tags: ['Authors'],
                     handler: create,
-                    validate: schema.createProductsSchema
+                    validate: schema.createAuthorsSchema
                 }
             },
             {
                 method: "DELETE",
-                path: "/v1/products/{id}",
+                path: "/authors/{id}",
                 options: {
-                    tags: ['api'],
+                    tags: ['Authors'],
                     handler: deleteById,
                     validate: schema.deleteById
                 }
