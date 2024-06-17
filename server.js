@@ -6,8 +6,8 @@ const HapiSwagger = require('hapi-swagger');
 const {version} = require('./package.json');
 
 const server = Hapi.server({
-    port: 5000,
-    host: "0.0.0.0"
+    port: 3000,
+    host: "localhost"
 });
 
 const swaggerPlugin = [
@@ -19,7 +19,7 @@ const swaggerPlugin = [
             documentationPath: '/docs',
             schemes: ['http', 'https'],
             info: {
-                title: 'API Aula laboratorio web',
+                title: 'API Avaliação laboratorio web',
                 version: version
             }
         }
